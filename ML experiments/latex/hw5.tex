@@ -24,7 +24,7 @@
 \newcommand{\Hcal}{\mathcal{H}} 
 
 \section{Introduction}
-Constellation Pharmacology is an assay that looks at a dissociated tissue of interest. In this case the dorsal root ganglion (DRG), the an organ of the body responsible for all physical sensations (heat, cold, pain, proprioception, light touch, heavy touch). The tissue is;
+This project can be found at the github respository \href {}{}Constellation Pharmacology is an assay that looks at a dissociated tissue of interest. In this case the dorsal root ganglion (DRG), the an organ of the body responsible for all physical sensations (heat, cold, pain, proprioception, light touch, heavy touch). The tissue is;
 \begin{enumerate}	
 \item Gently broken up until the cells in this tissue (neurons) are isolated from one another. 
 \item The cells, $\approx 5000$, are plated so that each cell is seperate from one another.
@@ -72,7 +72,7 @@ This was the most time consuming and difficult aspect of the project. Since we h
 The goal of this experiment was to determine whether a response could be detected at a significant rate. Initially the e1071 package was used to produce the SVM. This package produced fantastic results. After this, radial svm was attempted to see if this could further improve the model. Suprsingly radial SVM takes significantly longer than linear. Where the majority of the time comes from is for the tuning of the $C$ and $\sigma$ value. Due to this extensive ammount of time required to tune the radial SVM, the $caret$ package was invoked and used for tuning.  What is most nice about the caret package is the ability to paralleize the code. with e1071 my processors utilization was $\approx 20\%$. After parallelization my processors were at 100\% and was able to cross validate.
 
 \begin{enumerate}
-	\item Linear vs Radial SVM: The first experimentor included a single experimentors data which is 30,000 instances. For linear SVM it was cross Validated (10 fold, repeated 4 times), and 12 C values were tested for each natural product.
+	\item Linear vs Radial SVM: The first experimentor included a single experimentors data which is 30,000 instances. For linear SVM it was cross Validated (10 fold, repeated 4 times), and 12 C values were tested for each natural product. The training data was selected as a random sample of \frac{2}{3} of the total dataset. Train vs test accuracy matched very closely for each experiment.
 		\begin{center}
 		\begin{tabular} {c|cccc}
 			SVM Method & AITC & Menthol & Capsaicin & K.40mM \\ \hline \hline
@@ -95,7 +95,7 @@ The goal of this experiment was to determine whether a response could be detecte
 
 \section{Future Directions}
 \begin{enumerate}
-\item It would be nice to move our data into a database format. This would allows for a much faster data collection and testing method. Currently each experiment is $\approx 500-1,500 MB$ Only a subset of this information needs to be accessed as well, thus a significant ammount fo time was spend troublshooting the loading features and label space into the support vector machine.  
+\item It would be nice to move our data into a database format. This would allows for a much faster data collection and testing method. Currently each experiment is $\approx 500-1,500 MB$ Only a subset of this information needs to be accessed as well, thus a significant ammount of time was spend troublshooting the loading features and label space into the support vector machine.  
 
 \item Auditing: The next series of our application that needs to be developed is a way to view the support vectors. These cells should have a some significant value for helping us tune the statistics collected, along with improving the data cleaning protocol. I have already developed a UI within the R environment while works in rapid way for displaying the data.
 
@@ -104,7 +104,7 @@ The goal of this experiment was to determine whether a response could be detecte
 \item Now that SVM's have proven to been very useful for us during these simple experiment, more advanced effect detection would be interesting to observe and continue development on. In the figure below is an example of the more advanced effects our group would like to detect. a compound pl14a.10uM is applied, and this application causes the cells to have an amplified response to this compound. THis effect is repeated three times.  Unfortuneatly this example is the cleanest as others have significantly more suddle effects.
 \newline 
 \begin{center}
-	\includegraphics[scale=.35]{advanced_detection.png}\newline
+	\includegraphics[scale=.3]{advanced_detection.png}
 \end{center}
 \end{enumerate}
 
